@@ -1,0 +1,11 @@
+.cmp {
+  padding: 6px;
+  margin: 6px;
+  border: 2px solid red;
+}
+
+/* If using Native Shadow DOM */
+/* ::shadow .cmp {
+  padding: 6px;
+  margin: 6px;
+} */
