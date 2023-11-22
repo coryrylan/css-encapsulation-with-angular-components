@@ -1,16 +1,27 @@
-import './polyfills';
+import { Component } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import 'zone.js';
+import { FirstComponent } from './first/first.component';
+import { SecondComponent } from './second/second.component';
 
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [FirstComponent, SecondComponent],
+  template: `
+    <h1>CSS Encapsulation with Angular Components</h1>
+    <p>
+      <a href="https://coryrylan.com/blog/css-encapsulation-with-angular-components">Tutorial at coryrylan.com</a>
+    </p>
+    <div class="cmp">
+      App Component
+      <app-first></app-first>
+      <app-second></app-second>
+    </div>
+  `,
+})
+export class App {
+  name = 'Angular';
+}
 
-import { AppModule } from './app/app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
-  // Ensure Angular destroys itself on hot reloads.
-  if (window['ngRef']) {
-    window['ngRef'].destroy();
-  }
-  window['ngRef'] = ref;
-
-  // Otherise, log the boot error
-}).catch(err => console.error(err));
+bootstrapApplication(App);

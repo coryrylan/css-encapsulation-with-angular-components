@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-second',
+  standalone: true,
   templateUrl: './second.component.html',
   styleUrls: ['./second.component.css'],
   // encapsulation: ViewEncapsulation.ShadowDom // introduced in Angular 6.1 (Shadow Dom v1)
